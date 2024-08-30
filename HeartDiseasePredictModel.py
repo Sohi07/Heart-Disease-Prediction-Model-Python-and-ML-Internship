@@ -9,7 +9,7 @@ from sklearn.metrics import roc_auc_score, accuracy_score, roc_curve, auc, confu
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load and preprocess the dataset
+
 data = pd.read_csv('heart.csv')
 data['Sex'] = data['Sex'].map({'M': 1, 'F': 0})
 data['ChestPainType'] = data['ChestPainType'].map({'ATA': 0, 'NAP': 1, 'ASY': 2, 'TA': 3})
@@ -17,19 +17,18 @@ data['RestingECG'] = data['RestingECG'].map({'Normal': 0, 'ST': 1, 'LVH': 2})
 data['ExerciseAngina'] = data['ExerciseAngina'].map({'N': 0, 'Y': 1})
 data['ST_Slope'] = data['ST_Slope'].map({'Up': 0, 'Flat': 1, 'Down': 2})
 
-# Split the dataset into features and target variable
+
 X = data.drop('HeartDisease', axis=1)
 y = data['HeartDisease']
 
-# Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Standardize the features
+
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# Initialize and evaluate models
+
 models = {
     'Logistic Regression': LogisticRegression(),
     'Decision Tree': DecisionTreeClassifier(random_state=42),
@@ -51,7 +50,7 @@ for name, model in models.items():
     results[name] = {'Accuracy': accuracy, 'AUC': auc_score}
     model_objects[name] = model
 
-# Determine the best model
+
 best_model_name = max(results, key=lambda x: (results[x]['Accuracy'], results[x]['AUC']))
 best_model = model_objects[best_model_name]
 
@@ -61,7 +60,6 @@ for name, metrics in results.items():
 
 print(f"\nThe best model is: {best_model_name}")
 
-# Now you can take user input and make predictions using best_model and scaler
 
 def get_user_input():
     age = int(input("Enter Age: "))
@@ -97,13 +95,12 @@ def make_prediction(model, scaler, new_data):
 new_user_data = get_user_input()
 make_prediction(best_model, scaler, new_user_data)
 
-# Visualizations and Feature Importance
 
-# Compute ROC curve
+
 fpr, tpr, _ = roc_curve(y_test, best_model.predict_proba(X_test)[:, 1])
 roc_auc = auc(fpr, tpr)
 
-# Plot ROC curve
+
 plt.figure()
 plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC curve (area = {roc_auc:.2f})')
 plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
@@ -115,7 +112,6 @@ plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
 plt.show()
 
-# Plot Precision-Recall curve
 precision, recall, _ = precision_recall_curve(y_test, best_model.predict_proba(X_test)[:, 1])
 plt.figure()
 plt.plot(recall, precision, color='purple', lw=2)
@@ -124,14 +120,14 @@ plt.ylabel('Precision')
 plt.title('Precision-Recall Curve')
 plt.show()
 
-# Calculate and plot the correlation matrix
+
 corr_matrix = data.corr()
 plt.figure(figsize=(12, 8))
 sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap='coolwarm', square=True, cbar_kws={"shrink": .8})
 plt.title('Correlation Matrix of Heart Disease Dataset')
 plt.show()
 
-# Plot histogram for Age
+
 plt.figure(figsize=(10, 6))
 plt.hist(data['Age'], bins=20, color='blue', edgecolor='black')
 plt.title('Histogram of Age')
@@ -140,7 +136,7 @@ plt.ylabel('Frequency')
 plt.grid(True)
 plt.show()
 
-# Compute and plot confusion matrix
+
 cm = confusion_matrix(y_test, best_model.predict(X_test))
 plt.figure(figsize=(8,6))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
@@ -149,14 +145,14 @@ plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
 
-# Feature importance for models that support it
+
 if hasattr(best_model, 'feature_importances_'):
     importances = best_model.feature_importances_
     features = X.columns
     feature_importance_df = pd.DataFrame({'Feature': features, 'Importance': importances})
     feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
 
-    # Plot feature importance
+   
     plt.figure(figsize=(10, 6))
     sns.barplot(x='Importance', y='Feature', data=feature_importance_df, palette='viridis')
     plt.title('Feature Importance')
