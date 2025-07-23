@@ -40,7 +40,7 @@ Accuracy, Precision, Recall, F1-score
 Confusion Matrix
 ROC Curves for model comparison
 
-Python and ML Internship Project<br>
+
 Made By-<br>
 Sohini Das (13101182023)<br>
 Sana Sindwani (11301182023)<br>
