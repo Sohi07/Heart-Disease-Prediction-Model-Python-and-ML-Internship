@@ -29,7 +29,7 @@ ST Depression (oldpeak)
 - Box plots for feature comparison
 
 3.Model Building
-- Trained the following models:
+<br>Trained the following models:
 - Logistic Regression
 - Decision Tree
 - Random Forest
