@@ -19,29 +19,29 @@ ST Depression (oldpeak)
 
 # Steps 
 1.Data Cleaning & Preprocessing
-Handled missing values
-Label encoding for categorical features
-Feature scaling using StandardScaler
+- Handled missing values
+- Label encoding for categorical features
+- Feature scaling using StandardScaler
 
 2.Exploratory Data Analysis
-Correlation heatmap
-Target distribution
-Box plots for feature comparison
+- Correlation heatmap
+- Target distribution
+- Box plots for feature comparison
 
 3.Model Building
-Trained the following models:
-Logistic Regression
-Decision Tree
-Random Forest
-Naive Bayes
+- Trained the following models:
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Naive Bayes
 
 4.Evaluation
-Accuracy, Precision, Recall, F1-score
-Confusion Matrix
-ROC Curves for model comparison
+- Accuracy, Precision, Recall, F1-score
+- Confusion Matrix
+- ROC Curves for model comparison
 
 
-Made By-<br>
+# Made By-<br>
 Sohini Das (13101182023)<br>
 Sana Sindwani (11301182023)<br>
 Vishmita (15201182023)
