@@ -1,5 +1,8 @@
 # Heart-Disease-Prediction-Model-Python-and-ML-Internship
 This project builds and evaluates multiple machine learning models to predict the presence of heart disease based on clinical features. It compares Logistic Regression, Decision Tree, Random Forest, and Naive Bayes classifiers using metrics such as accuracy, precision, recall, F1-score, and ROC-AUC.
+Google Colab Link: 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec5M_wt574P4HzAfh9C8Sa2sz3p_yeC?usp=sharing)
 
 # Dataset used
 The dataset used is a processed heart disease dataset containing features such as:
@@ -43,6 +46,4 @@ Sohini Das (13101182023)<br>
 Sana Sindwani (11301182023)<br>
 Vishmita (15201182023)
 
-Google Colab Link: 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec5M_wt574P4HzAfh9C8Sa2sz3p_yeC?usp=sharing)
