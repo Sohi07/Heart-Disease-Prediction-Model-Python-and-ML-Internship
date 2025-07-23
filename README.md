@@ -29,11 +29,12 @@ ST Depression (oldpeak)
 - Box plots for feature comparison
 
 3.Model Building
-<br>Trained the following models:
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Naive Bayes
+
+-Trained the following models:
+ - Logistic Regression
+ - Decision Tree
+ - Random Forest
+ - Naive Bayes
 
 4.Evaluation
 - Accuracy, Precision, Recall, F1-score
